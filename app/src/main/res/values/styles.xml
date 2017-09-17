@@ -6,6 +6,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="vpiUnderlinePageIndicatorStyle">@style/CustomUnderlinePageIndicator</item>
     </style>
 
+    <style name="CustomUnderlinePageIndicator">
+        <item name="selectedColor">#CC000000</item>
+        <item name="android:background">#CC888888</item>
+        <!--<item name="fadeLength">1000</item>-->
+        <!--<item name="fadeDelay">1000</item>-->
+    </style>
 </resources>

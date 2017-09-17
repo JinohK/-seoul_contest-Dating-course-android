@@ -10,13 +10,13 @@ import android.support.v7.widget.Toolbar;
 
 import com.jinji.seoul_dating_course.R;
 import com.jinji.seoul_dating_course.databinding.ActivityMainBinding;
-import com.jinji.seoul_dating_course.fragment.Fragment1;
-import com.jinji.seoul_dating_course.fragment.Fragment2;
+import com.jinji.seoul_dating_course.fragment.TodayFragment;
+import com.jinji.seoul_dating_course.fragment.AccumulatedFragment;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
-    private Fragment1 fragment1;
-    private Fragment2 fragment2;
+    private TodayFragment todayFragment;
+    private AccumulatedFragment accumulatedFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(false);
 
         // 탭 설정
-        fragment1 = new Fragment1();
-        fragment2 = new Fragment2();
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
+        todayFragment = new TodayFragment();
+        accumulatedFragment = new AccumulatedFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, todayFragment).commit();
         TabLayout tabs = binding.tablayout;
         tabs.addTab(tabs.newTab().setText("오늘의코스"));
         tabs.addTab(tabs.newTab().setText("누적코스"));
@@ -46,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
                 int position = tab.getPosition();
                 Fragment selected = null;
                 if(position==0){
-                    selected = fragment1;
+                    selected = todayFragment;
                 }else if(position==1){
-                    selected = fragment2;
+                    selected = accumulatedFragment;
                 }
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, selected).commit();
